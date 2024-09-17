@@ -38,7 +38,7 @@ type capSolverResponse struct {
 
 type capSolverRequest struct {
 	ClientKey string          `json:"ClientKey"`
-	appId string          `json:"appId"`
+	AppId string          `json:"appId"`
 	Task      *map[string]any `json:"task,omitempty"`
 	TaskId    string          `json:"taskId,omitempty"`
 }
