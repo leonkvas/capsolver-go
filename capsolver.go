@@ -7,7 +7,7 @@ import (
 
 func (c CapSolver) Solve(task map[string]any) (*capSolverResponse, error) {
 	//
-	capRes, err := request(CREATE_TASK_URI, &capSolverRequest{Task: &task, ClientKey: c.getApiKey(), appId: "16EF5A46-0889-4B03-BC61-4D900B387202"})
+	capRes, err := request(CREATE_TASK_URI, &capSolverRequest{Task: &task, ClientKey: c.getApiKey(), AppId: "16EF5A46-0889-4B03-BC61-4D900B387202"})
 	if err != nil {
 		return nil, err
 	}
@@ -18,7 +18,7 @@ func (c CapSolver) Solve(task map[string]any) (*capSolverResponse, error) {
 		return capRes, nil
 	}
 	for i := 0; i < TASK_TIMEOUT; i++ {
-		capRes, err = request(GET_TASK_URI, &capSolverRequest{ClientKey: c.getApiKey(), TaskId: capRes.TaskId, appId: "16EF5A46-0889-4B03-BC61-4D900B387202"})
+		capRes, err = request(GET_TASK_URI, &capSolverRequest{ClientKey: c.getApiKey(), TaskId: capRes.TaskId, AppId: "16EF5A46-0889-4B03-BC61-4D900B387202"})
 		time.Sleep(time.Second * 1)
 		if err != nil {
 			return nil, err
